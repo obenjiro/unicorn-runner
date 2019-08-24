@@ -1,4 +1,9 @@
-class ClipBox {
+import {Vec2} from "src/math";
+
+export class ClipBox {
+    private pos: Vec2;
+    private size: Vec2;
+    private offset: Vec2;
     constructor(pos, size, offset) {
         this.pos = pos;
         this.size = size;

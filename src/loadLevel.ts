@@ -1,4 +1,9 @@
-function setupCollision(levelSpec, level) {
+import {createBackgroundLayer, createSpriteLayer, drawStaticBackground} from "./layers";
+import {loadImage} from "./loaders";
+import {Level} from "./Level";
+import {Matrix} from "./math";
+
+export function setupCollision(levelSpec, level) {
     const mergedTiles = levelSpec.layers.reduce((mergedTiles, layerSpec) => {
         return mergedTiles.concat(layerSpec.tiles);
     }, []);
@@ -6,7 +11,7 @@ function setupCollision(levelSpec, level) {
     level.setCollisionGrid(collisionGrid);
 }
 
-function setupBackgrounds(levelSpec, level, backgroundSprites) {
+export function setupBackgrounds(levelSpec, level, backgroundSprites) {
     levelSpec.layers.forEach(layer => {
         const backgroundGrid = createBackgroundGrid(layer.tiles, levelSpec.patterns);
         const backgroundLayer = createBackgroundLayer(level, backgroundGrid, backgroundSprites);
@@ -16,7 +21,7 @@ function setupBackgrounds(levelSpec, level, backgroundSprites) {
     });
 }
 
-function setupEntities(levelSpec, level, entityFactory) {
+export function setupEntities(levelSpec, level, entityFactory) {
     levelSpec.entities.forEach(({name, pos: [x, y]}) => {
         const createEntity = entityFactory[name];
         const entity = createEntity();
@@ -28,7 +33,7 @@ function setupEntities(levelSpec, level, entityFactory) {
     level.comp.layers.push(spriteLayer);
 }
 
-function createLevelLoader(entityFactory) {
+export function createLevelLoader(entityFactory) {
     return function loadLevel(name) {
         return new Promise(resolve => {
             resolve(name);
@@ -48,7 +53,7 @@ function createLevelLoader(entityFactory) {
     }
 }
 
-function createCollisionGrid(tiles, patterns) {
+export function createCollisionGrid(tiles, patterns) {
     const grid = new Matrix();
 
     for (const {tile, x, y} of expandTiles(tiles, patterns)) {
@@ -58,7 +63,7 @@ function createCollisionGrid(tiles, patterns) {
     return grid;
 }
 
-function createBackgroundGrid(tiles, patterns) {
+export function createBackgroundGrid(tiles, patterns) {
     const grid = new Matrix();
 
     for (const {tile, x, y} of expandTiles(tiles, patterns)) {

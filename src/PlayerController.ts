@@ -1,4 +1,11 @@
-class PlayerController extends Trait {
+import {Vec2} from "./math";
+import {Entity, Trait} from "./Entity";
+
+export class PlayerController extends Trait {
+    checkpoint: Vec2;
+    private score: number;
+    private scoreSelector: HTMLElement;
+    private player: Entity;
     constructor() {
         super('playerController');
         this.checkpoint = new Vec2(0, 0);
@@ -7,14 +14,14 @@ class PlayerController extends Trait {
         this.scoreSelector = document.getElementById('unicorn-score');
     }
 
-    setPlayer(entity) {
+    setPlayer(entity: Entity) {
         this.player = entity;
 
         this.player.picker.onPick = () => {
             this.score += 50;
 
             setTimeout(() => {
-                this.scoreSelector.innerHTML = this.score;
+                this.scoreSelector.innerHTML = String(this.score);
             }, 0);
         }
     }

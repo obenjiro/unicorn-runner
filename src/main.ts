@@ -1,3 +1,12 @@
+import {Camera} from "./Camera";
+import {loadUnicorn} from "./chars/Unicorn";
+import {loadEnemyBug} from "./chars/EnemyBug";
+import {loadRainbow} from "./chars/Rainbow";
+import {PlayerController} from "./PlayerController";
+import {Entity} from "./Entity";
+import {createLevelLoader} from "./loadLevel";
+import {Timer} from "./Timer";
+
 const LEVEL = {
     layers: [
         {
@@ -168,7 +177,7 @@ function createPlayerEnv(playerEntity) {
 
 async function main(canvas) {
     const context = canvas.getContext('2d');
-    const charsFactory = await loadChars();
+    const charsFactory = await loadChars() as any;
     const loadLevel = await createLevelLoader(charsFactory);
     const level = await loadLevel(LEVEL);
     const camera = new Camera();
@@ -178,7 +187,7 @@ async function main(canvas) {
     level.entities.add(playerEnv);
 
     ['keydown', 'keyup'].forEach(eventName => {
-        window.addEventListener(eventName, event => {
+        window.addEventListener(eventName, (event: KeyboardEvent) => {
             if (event.code === 'Space') {
                 const keyState = event.type === 'keydown' ? 1 : 0;
 
@@ -198,7 +207,7 @@ async function main(canvas) {
         level.update(deltaTime);
         camera.pos.x = Math.max(0, unicorn.pos.x - 100);
         level.comp.draw(context, camera);
-    }
+    };
 
     timer.start();
 }

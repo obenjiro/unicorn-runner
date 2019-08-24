@@ -1,4 +1,5 @@
-class Matrix {
+export class Matrix {
+    private grid: any;
     constructor() {
         this.grid = [];
     }
@@ -20,7 +21,9 @@ class Matrix {
     }
 }
 
-class Vec2 {
+export class Vec2 {
+    y: number;
+    x: number;
     constructor(x, y) {
         this.set(x, y);
     }

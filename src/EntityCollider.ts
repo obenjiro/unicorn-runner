@@ -1,4 +1,7 @@
-class EntityCollider {
+import {Entity} from "./Entity";
+
+export class EntityCollider {
+    private entities: Entity[];
     constructor(entities) {
         this.entities = entities;
     }

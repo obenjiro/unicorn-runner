@@ -1,4 +1,9 @@
-class SpriteSheet {
+export class SpriteSheet {
+    private image: any;
+    private width: number;
+    private height: number;
+    private tiles: Map<any, any>;
+    private animations: Map<any, any>;
     constructor(image, width, height) {
         this.image = image;
         this.width = width;

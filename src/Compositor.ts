@@ -1,4 +1,5 @@
-class Compositor {
+export class Compositor {
+    private layers: any[];
     constructor() {
         this.layers = [];
     }

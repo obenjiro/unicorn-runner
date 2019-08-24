@@ -1,3 +1,7 @@
+import {loadSpriteSheet} from "../loaders";
+import {Entity} from "../Entity";
+import {Jump, Killable, Physics, Picker, Run, Solid} from "../Traits";
+
 const UNICORN = {
     imageURL: 'img/unicorn_full.png',
     frames: [
@@ -92,12 +96,12 @@ const UNICORN = {
     ]
 };
 
-function loadUnicorn() {
+export function loadUnicorn() {
     return loadSpriteSheet(UNICORN)
     .then(createUnicornFactory);
 }
 
-function createUnicornFactory(sprite) {
+export function createUnicornFactory(sprite) {
     const runAnim = sprite.animations.get('run');
     const deathAnim = sprite.animations.get('death');
 

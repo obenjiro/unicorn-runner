@@ -1,14 +1,16 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
+    "allowSyntheticDefaultImports": false,
     "noImplicitAny": false,
     "strict": false,
     "module": "es6",
+    "downlevelIteration": true,
+    "lib": ["es2015", "dom"],
     "target": "es5",
-    "allowJs": true
+    "allowJs": false
   },
   "include": [
-    "src/**/*"
+    "src/**/*.ts"
   ],
   "exclude": [
     "node_modules"

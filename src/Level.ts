@@ -1,4 +1,14 @@
-class Level {
+import {Compositor} from "./Compositor";
+import {EntityCollider} from "./EntityCollider";
+import {TileCollider} from "./TileCreation";
+
+export class Level {
+    gravity: number;
+    private totalTime: number;
+    comp: Compositor;
+    entities: Set<any>;
+    private entityCollider: EntityCollider;
+    tileCollider: TileCollider;
     constructor() {
         this.gravity = 1500;
         this.totalTime = 0;

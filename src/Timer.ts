@@ -1,4 +1,5 @@
-class Timer {
+export class Timer {
+    private updateProxy: (time) => void;
     constructor(deltaTime = 1/60) {
         let accumulatedTime = 0;
         let lastTime = 0;
@@ -27,5 +28,9 @@ class Timer {
 
     start() {
         this.enqueue();
+    }
+
+    update(deltaTime: number) {
+
     }
 }

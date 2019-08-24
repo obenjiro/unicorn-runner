@@ -1,9 +1,12 @@
-class Physics extends Trait {
+import {Entity, Sides, Trait} from "./Entity";
+import {Level} from "./Level";
+
+export class Physics extends Trait {
     constructor() {
         super('physics');
     }
 
-    update(entity, deltaTime, level) {
+    update(entity: Entity, deltaTime: number, level: Level): void {
         entity.pos.x += entity.vel.x * deltaTime;
         level.tileCollider.checkX(entity);
 
@@ -14,7 +17,8 @@ class Physics extends Trait {
     }
 }
 
-class Solid extends Trait {
+export class Solid extends Trait {
+    private obstructs: boolean;
     constructor() {
         super('solid');
         this.obstructs = true;
@@ -41,7 +45,9 @@ class Solid extends Trait {
     }
 }
 
-class Run extends Trait {
+export class Run extends Trait {
+    private speed: number;
+    private distance: number;
     constructor() {
         super('run');
 
@@ -55,7 +61,15 @@ class Run extends Trait {
     }
 }
 
-class Jump extends Trait {
+export class Jump extends Trait {
+    private ready: number;
+    private duration: number;
+    private engageTime: number;
+    private requestTime: number;
+    private gracePeriod: number;
+    private speedBoost: number;
+    private velocity: number;
+
     constructor() {
         super('jump');
 
@@ -108,7 +122,10 @@ class Jump extends Trait {
     }
 }
 
-class Killable extends Trait {
+export class Killable extends Trait {
+    private dead: boolean;
+    private deadTime: number;
+    private removeAfter: number;
     constructor() {
         super('killable');
         this.dead = false;
@@ -137,7 +154,10 @@ class Killable extends Trait {
     }
 }
 
-class Pickable extends Trait {
+export class Pickable extends Trait {
+    private picked: boolean;
+    private pickTime: number;
+    private removeAfter: number;
     constructor() {
         super('pickable');
         this.picked = false;
@@ -161,10 +181,11 @@ class Pickable extends Trait {
     }
 }
 
-class Picker extends Trait {
+export class Picker extends Trait {
+    private onPick: (us, them) => void;
     constructor() {
         super('picker');
-        this.onPick = function() {
+        this.onPick = function(us, them) {
         }
     }
 

@@ -1,11 +1,16 @@
-const Sides = {
+import {Vec2} from "./math";
+import {ClipBox} from "./CLipBox";
+
+export const Sides = {
     TOP: Symbol('top'),
     BOTTOM: Symbol('bottom'),
     LEFT: Symbol('left'),
     RIGHT: Symbol('right'),
 };
 
-class Trait {
+export class Trait {
+    private NAME: any;
+    private tasks: any[];
     constructor(name) {
         this.NAME = name;
 
@@ -25,16 +30,25 @@ class Trait {
 
     }
 
-    obstruct() {
+    obstruct(entity, side, match) {
 
     }
 
-    update() {
+    update(entity, deltaTime, level) {
 
     }
 }
 
-class Entity {
+export class Entity {
+    pos: Vec2;
+    vel: Vec2;
+    size: Vec2;
+    offset: Vec2;
+    bounds: ClipBox;
+    private lifetime: number;
+    private traits: any[];
+    killable: any;
+    picker: any;
     constructor() {
         this.pos = new Vec2(0, 0);
         this.vel = new Vec2(0, 0);
@@ -63,9 +77,7 @@ class Entity {
         });
     }
 
-    draw() {
-
-    }
+    draw(conext) {}
 
     finalize() {
         this.traits.forEach(trait => {
