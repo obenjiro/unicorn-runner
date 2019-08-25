@@ -3,7 +3,8 @@ import {Entity} from "../Entity";
 import {Physics} from "../traits/Physics";
 import {Solid} from "../traits/Solid";
 import {Pickable} from "../traits/Pickable";
-import {Trait} from "../traits/Trait";
+import {SpriteSheet} from "../SpriteSheet";
+import {BehaviorRainbow} from "../traits/BehaviorRainbow";
 
 const RAINBOW = {
     imageURL: 'img/rainbow_line.png',
@@ -54,33 +55,9 @@ export function loadRainbow() {
     .then(createRainbowFactory);
 }
 
-export class BehaviorRainbow extends Trait {
-    constructor() {
-        super('behavior');
-    }
 
-    collides(us, them) {
-        if (us.pickable.picked) {
-            return;
-        }
-
-        us.pickable.pick();
-        us.vel.set(30, -400);
-        us.solid.obstructs = false;
-    }
-}
-
-
-export function createRainbowFactory(sprite) {
+export function createRainbowFactory(sprite: SpriteSheet) {
     const sparkAnim = sprite.animations.get('spark');
-
-    function routeAnim(rainbow) {
-        return sparkAnim(rainbow.lifetime);
-    }
-
-    function drawRainbow(context) {
-        sprite.draw(routeAnim(this), context, 0, 0, this.vel.x < 0);
-    }
 
     return function createRainbow() {
         const rainbow = new Entity();
@@ -91,7 +68,9 @@ export function createRainbowFactory(sprite) {
         rainbow.addTrait(new Pickable());
         rainbow.addTrait(new BehaviorRainbow());
 
-        rainbow.draw = drawRainbow;
+        rainbow.draw = function (context) {
+            sprite.draw(sparkAnim(this.lifetime), context, 0, 0);
+        };
 
         return rainbow;
     };

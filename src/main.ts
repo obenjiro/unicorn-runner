@@ -2,10 +2,9 @@ import { Camera } from './Camera';
 import { loadUnicorn } from './chars/Unicorn';
 import { loadEnemyBug } from './chars/EnemyBug';
 import { loadRainbow } from './chars/Rainbow';
-import { PlayerTrait } from './traits/PlayerTrait';
-import { Entity } from './Entity';
 import { createLevelLoader } from './loadLevel';
 import { Timer } from './Timer';
+import {createPlayer} from "./chars/Player";
 
 const LEVEL = {
   layers: [
@@ -101,14 +100,6 @@ function loadChars() {
   ]).then(() => entityFactories);
 }
 
-function createPlayerEnv(playerEntity) {
-  const playerEnv = new Entity();
-  const playerControl = new PlayerTrait();
-  playerControl.checkpoint.set(64, 64);
-  playerControl.setPlayer(playerEntity);
-  playerEnv.addTrait(playerControl);
-  return playerEnv;
-}
 
 async function main(canvas) {
   const context = canvas.getContext('2d');
@@ -117,7 +108,7 @@ async function main(canvas) {
   const level = await loadLevel(LEVEL);
   const camera = new Camera();
   const unicorn = charsFactory.unicorn();
-  const playerEnv = createPlayerEnv(unicorn);
+  const playerEnv = createPlayer(unicorn);
 
   level.entities.add(playerEnv);
 

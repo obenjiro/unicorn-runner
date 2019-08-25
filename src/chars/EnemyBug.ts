@@ -3,7 +3,8 @@ import {Entity} from "../Entity";
 import {Physics} from "../traits/Physics";
 import {Solid} from "../traits/Solid";
 import {Killable} from "../traits/Killable";
-import {Trait} from "../traits/Trait";
+import {BehaviorEnemyBug} from "../traits/BehaviorEnemyBug";
+import {SpriteSheet} from "../SpriteSheet";
 
 const ENEMY_BUG = {
     imageURL: 'img/bug_line.png',
@@ -50,31 +51,8 @@ export function loadEnemyBug() {
 }
 
 
-export class BehaviorEnemyBug extends Trait {
-    constructor() {
-        super('behavior');
-    }
-
-    collides(us, them) {
-        if (us.killable.dead) {
-            return;
-        }
-
-        them.killable.kill();
-    }
-}
-
-
-export function createEnemyBugFactory(sprite) {
+export function createEnemyBugFactory(sprite: SpriteSheet) {
     const standAnim = sprite.animations.get('anim');
-
-    function routeAnim(enemyBug) {
-        return standAnim(enemyBug.lifetime);
-    }
-
-    function drawEnemyBug(context) {
-        sprite.draw(routeAnim(this), context, 0, 0);
-    }
 
     return function createEnemyBug() {
         const enemyBug = new Entity();
@@ -86,7 +64,9 @@ export function createEnemyBugFactory(sprite) {
         enemyBug.addTrait(new BehaviorEnemyBug());
         enemyBug.addTrait(new Killable());
 
-        enemyBug.draw = drawEnemyBug;
+        enemyBug.draw = function (context) {
+            sprite.draw(standAnim(this.lifetime), context, 0, 0);
+        };
 
         return enemyBug;
     };
