@@ -4,26 +4,9 @@
     <list default="true" id="ab879254-00aa-42bd-a485-8221c027ccb9" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CLipBox.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/CLipBox.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Camera.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Camera.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Compositor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Compositor.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EntityCollider.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/EntityCollider.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Level.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PlayerController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SpriteSheet.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/SpriteSheet.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TileCreation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/TileCreation.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Timer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Timer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Traits.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Traits.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/chars/EnemyBug.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/chars/EnemyBug.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/chars/Rainbow.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/chars/Rainbow.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/chars/Unicorn.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/chars/Unicorn.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/layers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/loadLevel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/loadLevel.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/loaders.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/loaders.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/math.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/math.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -36,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Traits.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-535">
-              <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+            <state relative-caret-position="336">
+              <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
               </folding>
@@ -57,11 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="183" column="43" lean-forward="true" selection-start-line="183" selection-start-column="43" selection-end-line="183" selection-end-column="43" />
+            <state relative-caret-position="-3952">
+              <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -70,10 +53,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/chars/Unicorn.ts">
+        <entry file="file://$PROJECT_DIR$/src/layers.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="33" selection-start-column="33" selection-end-column="33" />
+            <state relative-caret-position="21">
+              <caret line="4" column="60" selection-start-line="4" selection-start-column="59" selection-end-line="4" selection-end-column="60" />
+              <folding>
+                <element signature="n#!!block;n#createSpriteLayer#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -123,7 +109,7 @@
         <entry file="file://$PROJECT_DIR$/src/Compositor.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="252">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
             </state>
           </provider>
         </entry>
@@ -263,8 +249,8 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
-    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
     <key name="es6.move.members.recent.items">
@@ -300,16 +286,15 @@
       <workItem from="1566657961498" duration="1197000" />
       <workItem from="1566661312541" duration="231000" />
       <workItem from="1566661567979" duration="846000" />
-      <workItem from="1566662524520" duration="3099000" />
+      <workItem from="1566662524520" duration="3818000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5373000" />
+    <option name="totallyTimeSpent" value="6092000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="11" y="23" width="1660" height="944" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16749074" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -429,17 +414,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/layers.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1002">
-          <caret line="4" column="60" selection-start-line="4" selection-start-column="59" selection-end-line="4" selection-end-column="60" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-            <element signature="n#!!block;n#createSpriteLayer#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PlayerController.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -502,16 +476,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Traits.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-535">
-          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/loadLevel.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="945">
@@ -543,7 +507,7 @@
     <entry file="file://$PROJECT_DIR$/src/Compositor.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
@@ -554,12 +518,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/layers.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="4" column="60" selection-start-line="4" selection-start-column="59" selection-end-line="4" selection-end-column="60" />
+          <folding>
+            <element signature="n#!!block;n#createSpriteLayer#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="183" column="43" lean-forward="true" selection-start-line="183" selection-start-column="43" selection-end-line="183" selection-end-column="43" />
+        <state relative-caret-position="-3952">
+          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Traits.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
           </folding>
         </state>
       </provider>
