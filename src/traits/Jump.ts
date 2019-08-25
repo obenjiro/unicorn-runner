@@ -1,4 +1,4 @@
-import {Sides} from "../Entity";
+import { Entity, Sides } from '../Entity';
 import {Trait} from "./Trait";
 
 export class Jump extends Trait {
@@ -62,5 +62,11 @@ export class Jump extends Trait {
         }
 
         this.ready--;
+    }
+
+    getName(entity: Entity) {
+      if (this.falling) {
+        return 'jump'
+      }
     }
 }

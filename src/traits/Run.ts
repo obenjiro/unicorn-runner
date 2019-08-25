@@ -1,4 +1,5 @@
 import { Trait } from './Trait';
+import { Entity } from '../Entity';
 
 export class Run extends Trait {
   private speed: number;
@@ -16,5 +17,11 @@ export class Run extends Trait {
   update(entity, deltaTime) {
     entity.vel.x = this.speed * deltaTime;
     this.distance += Math.abs(entity.vel.x) * deltaTime;
+  }
+
+  getName(entity: Entity) {
+    if (this.distance > 0) {
+      return this.runAnim(this.distance)
+    }
   }
 }

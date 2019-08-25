@@ -1,4 +1,5 @@
 import {Trait} from "./Trait";
+import { Entity } from 'src/Entity';
 
 export class Killable extends Trait {
     dead: boolean;
@@ -32,5 +33,11 @@ export class Killable extends Trait {
                 });
             }
         }
+    }
+
+    getName(entity: Entity): string {
+      if (this.dead) {
+        return this.deathAnim(entity.lifetime);
+      }
     }
 }

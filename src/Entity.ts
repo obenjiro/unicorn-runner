@@ -19,10 +19,7 @@ export class Entity {
   bounds: ClipBox;
   lifetime: number;
   private traits: any[];
-  killable: Killable;
   picker: any;
-  jump: Jump;
-  run: Run;
 
   constructor() {
     this.pos = new Vec2(0, 0);
@@ -70,17 +67,12 @@ export class Entity {
   }
 
   getName() {
-    if (this.killable.dead) {
-      return this.killable.deathAnim(this.lifetime);
+    let name = 'idle';
+    for (let i = 0; i < this.traits.length; i++) {
+      const trait = this.traits[i];
+      const name = trait.getName(this);
+      if (name) break;
     }
-
-    if (this.jump.falling) {
-      return 'jump'
-    }
-
-    if (this.run.distance > 0) {
-      return this.run.runAnim(this.run.distance)
-    }
-    return 'idle';
+    return name;
   }
 }

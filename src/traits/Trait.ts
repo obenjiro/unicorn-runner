@@ -1,3 +1,5 @@
+import { Entity } from 'src/Entity';
+
 export class Trait {
     private NAME: any;
     private tasks: any[];
@@ -24,5 +26,9 @@ export class Trait {
     }
 
     update(entity, deltaTime, level) {
+    }
+
+    getName(entiry: Entity) {
+      return 'idle';
     }
 }
