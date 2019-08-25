@@ -6,6 +6,7 @@ import {Run} from "../traits/Run";
 import {Jump} from "../traits/Jump";
 import {Killable} from "../traits/Killable";
 import {Picker} from "../traits/Picker";
+import {SpriteSheet} from "src/SpriteSheet";
 
 const UNICORN = {
     imageURL: 'img/unicorn_full.png',
@@ -106,29 +107,9 @@ export function loadUnicorn() {
     .then(createUnicornFactory);
 }
 
-export function createUnicornFactory(sprite) {
+export function createUnicornFactory(sprite: SpriteSheet) {
     const runAnim = sprite.animations.get('run');
     const deathAnim = sprite.animations.get('death');
-
-    function routeFrame(unicorn) {
-        if (unicorn.killable.dead) {
-            return deathAnim(unicorn.lifetime);
-        }
-
-        if (unicorn.jump.falling) {
-            return 'jump';
-        }
-
-        if (unicorn.run.distance > 0) {
-            return runAnim(unicorn.run.distance);
-        }
-
-        return 'idle';
-    }
-
-    function drawUnicorn(context) {
-        sprite.draw(routeFrame(this), context, 0, 0, this.run.heading < 0);
-    }
 
     return function createUnicorn() {
         const unicorn = new Entity();
@@ -144,7 +125,20 @@ export function createUnicornFactory(sprite) {
 
         unicorn.killable.removeAfter = 1;
 
-        unicorn.draw = drawUnicorn;
+        unicorn.draw = function (context) {
+            if (unicorn.killable.dead) {
+                return deathAnim(unicorn.lifetime);
+            }
+
+            if (unicorn.jump.falling) {
+                return 'jump';
+            }
+
+            if (unicorn.run.distance > 0) {
+                return runAnim(unicorn.run.distance);
+            }
+            sprite.draw('idle', context, 0, 0);
+        };
 
         return unicorn;
     }

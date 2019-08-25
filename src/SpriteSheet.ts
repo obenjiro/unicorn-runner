@@ -3,7 +3,7 @@ export class SpriteSheet {
   private width: number;
   private height: number;
   private tiles: Map<any, any>;
-  private animations: Map<any, any>;
+  animations: Map<any, any>;
   constructor(image, width, height) {
     this.image = image;
     this.width = width;

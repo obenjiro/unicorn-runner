@@ -1,9 +1,9 @@
 import {Trait} from "./Trait";
 
 export class Killable extends Trait {
-    private dead: boolean;
+    dead: boolean;
     private deadTime: number;
-    private removeAfter: number;
+    removeAfter: number;
 
     constructor() {
         super('killable');

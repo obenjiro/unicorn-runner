@@ -2,7 +2,7 @@ import {Trait} from "./Trait";
 
 export class Run extends Trait {
     private speed: number;
-    private distance: number;
+    distance: number;
 
     constructor() {
         super('run');

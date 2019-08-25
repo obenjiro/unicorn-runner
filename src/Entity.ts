@@ -1,5 +1,8 @@
 import {Vec2} from './math';
 import {ClipBox} from './CLipBox';
+import {Killable} from "src/traits/Killable";
+import {Jump} from "src/traits/Jump";
+import {Run} from "src/traits/Run";
 
 export const Sides = {
   TOP: Symbol('top'),
@@ -14,10 +17,12 @@ export class Entity {
   size: Vec2;
   offset: Vec2;
   bounds: ClipBox;
-  private lifetime: number;
+  lifetime: number;
   private traits: any[];
-  killable: any;
+  killable: Killable;
   picker: any;
+  jump: Jump;
+  run: Run;
   constructor() {
     this.pos = new Vec2(0, 0);
     this.vel = new Vec2(0, 0);
