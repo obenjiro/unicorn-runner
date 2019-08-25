@@ -1,5 +1,5 @@
-import { Vec2 } from './math';
-import { ClipBox } from './CLipBox';
+import {Vec2} from './math';
+import {ClipBox} from './CLipBox';
 
 export const Sides = {
   TOP: Symbol('top'),
@@ -7,31 +7,6 @@ export const Sides = {
   LEFT: Symbol('left'),
   RIGHT: Symbol('right'),
 };
-
-export class Trait {
-  private NAME: any;
-  private tasks: any[];
-  constructor(name) {
-    this.NAME = name;
-
-    this.tasks = [];
-  }
-
-  finalize() {
-    this.tasks.forEach(task => task());
-    this.tasks.length = 0;
-  }
-
-  queue(task) {
-    this.tasks.push(task);
-  }
-
-  collides(us, them) {}
-
-  obstruct(entity, side, match) {}
-
-  update(entity, deltaTime, level) {}
-}
 
 export class Entity {
   pos: Vec2;

@@ -1,6 +1,11 @@
 import {loadSpriteSheet} from "../loaders";
 import {Entity} from "../Entity";
-import {Jump, Killable, Physics, Picker, Run, Solid} from "../Traits";
+import {Physics} from "src/traits/Physics";
+import {Solid} from "src/traits/Solid";
+import {Run} from "src/traits/Run";
+import {Jump} from "src/traits/Jump";
+import {Killable} from "src/traits/Killable";
+import {Picker} from "src/traits/Picker";
 
 const UNICORN = {
     imageURL: 'img/unicorn_full.png',

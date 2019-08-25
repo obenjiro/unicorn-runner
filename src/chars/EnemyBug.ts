@@ -1,6 +1,9 @@
 import {loadSpriteSheet} from "../loaders";
-import {Entity, Trait} from "../Entity";
-import {Killable, Physics, Solid} from "../Traits";
+import {Entity} from "../Entity";
+import {Physics} from "src/traits/Physics";
+import {Solid} from "src/traits/Solid";
+import {Killable} from "src/traits/Killable";
+import {Trait} from "src/traits/Trait";
 
 const ENEMY_BUG = {
     imageURL: 'img/bug_line.png',

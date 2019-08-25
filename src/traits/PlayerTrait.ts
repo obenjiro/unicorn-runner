@@ -1,7 +1,8 @@
-import { Vec2 } from './math';
-import { Entity, Trait } from './Entity';
+import { Vec2 } from '../math';
+import { Entity} from '../Entity';
+import {Trait} from "src/traits/Trait";
 
-export class PlayerController extends Trait {
+export class PlayerTrait extends Trait {
   checkpoint: Vec2;
   private score: number;
   private scoreSelector: HTMLElement;
