@@ -32,10 +32,10 @@ export function loadSpriteSheet(name) {
         sheetSpec.frames.forEach((frameSpec: any) => {
           sprites.define(
             frameSpec.name,
-            frameSpec.rect.x,
-            frameSpec.y,
-            frameSpec.rect.width,
-            frameSpec.rect.height
+            frameSpec.rect[0],
+            frameSpec.rect[1],
+            frameSpec.rect[2],
+            frameSpec.rect[3]
           );
         });
       }
