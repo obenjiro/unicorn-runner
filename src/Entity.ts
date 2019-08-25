@@ -1,8 +1,8 @@
-import {Vec2} from './math';
-import {ClipBox} from './CLipBox';
-import {Killable} from "src/traits/Killable";
-import {Jump} from "src/traits/Jump";
-import {Run} from "src/traits/Run";
+import { Vec2 } from './math';
+import { ClipBox } from './CLipBox';
+import { Killable } from 'src/traits/Killable';
+import { Jump } from 'src/traits/Jump';
+import { Run } from 'src/traits/Run';
 
 export const Sides = {
   TOP: Symbol('top'),
@@ -23,6 +23,7 @@ export class Entity {
   picker: any;
   jump: Jump;
   run: Run;
+
   constructor() {
     this.pos = new Vec2(0, 0);
     this.vel = new Vec2(0, 0);
@@ -51,7 +52,8 @@ export class Entity {
     });
   }
 
-  draw(conext) {}
+  draw(conext) {
+  }
 
   finalize() {
     this.traits.forEach(trait => {
@@ -65,5 +67,20 @@ export class Entity {
     });
 
     this.lifetime += deltaTime;
+  }
+
+  getName() {
+    if (this.killable.dead) {
+      return this.killable.deathAnim(this.lifetime);
+    }
+
+    if (this.jump.falling) {
+      return 'jump'
+    }
+
+    if (this.run.distance > 0) {
+      return this.run.runAnim(this.run.distance)
+    }
+    return 'idle';
   }
 }

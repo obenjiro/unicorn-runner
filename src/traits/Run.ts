@@ -1,18 +1,20 @@
-import {Trait} from "./Trait";
+import { Trait } from './Trait';
 
 export class Run extends Trait {
-    private speed: number;
-    distance: number;
+  private speed: number;
+  distance: number;
+  runAnim: any;
 
-    constructor() {
-        super('run');
+  constructor(runAnim: any) {
+    super('run');
+    this.runAnim = runAnim;
 
-        this.speed = 13000;
-        this.distance = 0;
-    }
+    this.speed = 13000;
+    this.distance = 0;
+  }
 
-    update(entity, deltaTime) {
-        entity.vel.x = this.speed * deltaTime;
-        this.distance += Math.abs(entity.vel.x) * deltaTime;
-    }
+  update(entity, deltaTime) {
+    entity.vel.x = this.speed * deltaTime;
+    this.distance += Math.abs(entity.vel.x) * deltaTime;
+  }
 }

@@ -62,7 +62,7 @@ export function createEnemyBugFactory(sprite: SpriteSheet) {
         enemyBug.addTrait(new Physics());
         enemyBug.addTrait(new Solid());
         enemyBug.addTrait(new BehaviorEnemyBug());
-        enemyBug.addTrait(new Killable());
+        enemyBug.addTrait(new Killable(1));
 
         enemyBug.draw = function (context) {
             sprite.draw(standAnim(this.lifetime), context, 0, 0);

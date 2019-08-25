@@ -1,12 +1,12 @@
-import {loadSpriteSheet} from "../loaders";
-import {Entity} from "../Entity";
-import {Physics} from "../traits/Physics";
-import {Solid} from "../traits/Solid";
-import {Run} from "../traits/Run";
-import {Jump} from "../traits/Jump";
-import {Killable} from "../traits/Killable";
-import {Picker} from "../traits/Picker";
-import {SpriteSheet} from "src/SpriteSheet";
+import { loadSpriteSheet } from '../loaders';
+import { Entity } from '../Entity';
+import { Physics } from '../traits/Physics';
+import { Solid } from '../traits/Solid';
+import { Run } from '../traits/Run';
+import { Jump } from '../traits/Jump';
+import { Killable } from '../traits/Killable';
+import { Picker } from '../traits/Picker';
+import { SpriteSheet } from 'src/SpriteSheet';
 
 const UNICORN = {
     imageURL: 'img/unicorn_full.png',
@@ -118,26 +118,13 @@ export function createUnicornFactory(sprite: SpriteSheet) {
 
         unicorn.addTrait(new Physics());
         unicorn.addTrait(new Solid());
-        unicorn.addTrait(new Run());
+        unicorn.addTrait(new Run(runAnim));
         unicorn.addTrait(new Jump());
         unicorn.addTrait(new Picker());
-        unicorn.addTrait(new Killable());
-
-        unicorn.killable.removeAfter = 1;
+        unicorn.addTrait(new Killable(1, deathAnim));
 
         unicorn.draw = function (context) {
-            if (unicorn.killable.dead) {
-                return deathAnim(unicorn.lifetime);
-            }
-
-            if (unicorn.jump.falling) {
-                return 'jump';
-            }
-
-            if (unicorn.run.distance > 0) {
-                return runAnim(unicorn.run.distance);
-            }
-            sprite.draw('idle', context, 0, 0);
+            sprite.draw(unicorn.getName(), context, 0, 0);
         };
 
         return unicorn;
