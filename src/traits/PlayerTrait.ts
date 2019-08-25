@@ -33,7 +33,7 @@ export class PlayerTrait extends Trait {
       this.player.pos.y > 1200 ||
       this.player.pos.x > 11400
     ) {
-      this.player.killable.revive();
+      this.player.revive();
       this.player.pos.set(this.checkpoint.x, this.checkpoint.y);
       level.entities.add(this.player);
     }

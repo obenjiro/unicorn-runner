@@ -1,8 +1,5 @@
 import { Vec2 } from './math';
 import { ClipBox } from './CLipBox';
-import { Killable } from 'src/traits/Killable';
-import { Jump } from 'src/traits/Jump';
-import { Run } from 'src/traits/Run';
 
 export const Sides = {
   TOP: Symbol('top'),
@@ -74,5 +71,12 @@ export class Entity {
       if (name) break;
     }
     return name;
+  }
+
+  revive() {
+    for (let i = 0; i < this.traits.length; i++) {
+      const trait = this.traits[i];
+      if (trait.revive) trait.revive();
+    }
   }
 }
