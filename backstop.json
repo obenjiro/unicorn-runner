@@ -1,0 +1,62 @@
+{
+  "id": "backstop_default",
+  "viewports": [
+    {
+      "label": "tablet",
+      "width": 1024,
+      "height": 768
+    }
+  ],
+  "onBeforeScript": "puppet/onBefore.js",
+  "onReadyScript": "puppet/onReady.js",
+  "scenarios": [
+    {
+      "label": "initial render",
+      "url": "http://localhost:8080/",
+      "readyEvent": "page_loaded",
+      "delay": 0,
+      "selectors": ["canvas"],
+      "misMatchThreshold" : 20
+    },
+    {
+      "label": "first collision - score",
+      "url": "http://localhost:8080/",
+      "readyEvent": "page_loaded",
+      "delay": 1000,
+      "selectors": ["canvas"],
+      "misMatchThreshold" : 20
+    },
+    {
+      "label": "second collision - death",
+      "url": "http://localhost:8080/",
+      "readyEvent": "page_loaded",
+      "delay": 2000,
+      "selectors": ["canvas"],
+      "misMatchThreshold" : 20
+    },
+    {
+      "label": "second collision - restarts game",
+      "url": "http://localhost:8080/",
+      "readyEvent": "page_loaded",
+      "delay": 3000,
+      "selectors": ["canvas"],
+      "misMatchThreshold" : 20
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "engine_scripts": "backstop_data/engine_scripts",
+    "html_report": "backstop_data/html_report",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "report": ["browser"],
+  "engine": "puppeteer",
+  "engineOptions": {
+    "args": ["--no-sandbox"]
+  },
+  "asyncCaptureLimit": 5,
+  "asyncCompareLimit": 50,
+  "debug": false,
+  "debugWindow": false
+}

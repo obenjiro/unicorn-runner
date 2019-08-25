@@ -137,6 +137,7 @@ async function main(canvas) {
     });
   });
 
+
   const timer = new Timer(1 / 60);
   timer.update = function update(deltaTime) {
     level.update(deltaTime);
@@ -144,7 +145,11 @@ async function main(canvas) {
     level.comp.draw(context, camera);
   };
 
-  timer.start();
+  setTimeout(() => {
+    timer.start();
+  }, 100);
+
+  console.log('page_loaded');
 }
 
 const canvas = document.getElementById('screen');
