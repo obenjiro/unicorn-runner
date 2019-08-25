@@ -1,10 +1,10 @@
 import { Entity } from '../Entity';
 import { PlayerTrait } from '../traits/PlayerTrait';
 
-export function createPlayer(playerEntity) {
+export function createPlayer(playerEntity, done) {
   const playerEnv = new Entity();
 
-  const playerTrait = new PlayerTrait();
+  const playerTrait = new PlayerTrait(done);
   playerTrait.checkpoint.set(64, 64);
   playerTrait.setPlayer(playerEntity);
 

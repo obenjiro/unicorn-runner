@@ -1,116 +1,20 @@
-import { Camera } from './Camera';
-import { loadUnicorn } from './chars/Unicorn';
-import { loadEnemyBug } from './chars/EnemyBug';
-import { loadRainbow } from './chars/Rainbow';
-import { createLevelLoader } from './loadLevel';
 import { Timer } from './Timer';
-import {createPlayer} from "./chars/Player";
+import { createFirstLevel } from './levels/fistLevel';
+import { createSecondLevel } from './levels/secondLevel';
 
-const LEVEL = {
-  layers: [
-    {
-      tiles: [
-        {
-          ranges: [
-            [0, 1, 3, 4],
-            [1, 19, 6, 1],
-            [24, 10, 6, 1],
-            [38, 10, 4, 1],
-            [51, 2, 4, 1],
-            [55, 2, 6, 1],
-            [60, 1, 6, 1],
-            [64, 5, 8, 1],
-            [73, 10, 5, 1],
-            [87, 2, 8, 1],
-            [93, 4, 6, 1],
-            [101, 19, 6, 1],
-            [124, 10, 6, 1],
-            [138, 10, 4, 1],
-            [151, 2, 4, 1],
-            [155, 2, 6, 1],
-            [160, 1, 6, 1],
-            [164, 5, 8, 1],
-            [173, 10, 5, 1],
-            [187, 2, 8, 1],
-            [193, 1, 6, 1],
-          ],
-        },
-      ],
-    },
-  ],
-  entities: [
-    {
-      name: 'rainbow',
-      pos: [408, 0],
-    },
-    {
-      name: 'enemyBug',
-      pos: [780, 0],
-    },
-    {
-      name: 'rainbow',
-      pos: [1608, 0],
-    },
-    {
-      name: 'enemyBug',
-      pos: [1800, 0],
-    },
-    {
-      name: 'enemyBug',
-      pos: [2580, 0],
-    },
-    {
-      name: 'rainbow',
-      pos: [3288, 0],
-    },
-    {
-      name: 'enemyBug',
-      pos: [3960, 0],
-    },
-    {
-      name: 'rainbow',
-      pos: [4448, 0],
-    },
-    {
-      name: 'enemyBug',
-      pos: [4620, 0],
-    },
-    {
-      name: 'rainbow',
-      pos: [5588, 0],
-    },
-    {
-      name: 'rainbow',
-      pos: [7388, 0],
-    },
-  ],
-};
+async function main() {
+  await createFirstLevel(() => {
+    createSecondLevel();
+  });
 
-function loadChars() {
-  const entityFactories = {};
-
-  function addFactory(name) {
-    return factory => (entityFactories[name] = factory);
-  }
-
-  return Promise.all([
-    loadUnicorn().then(addFactory('unicorn')),
-    loadEnemyBug().then(addFactory('enemyBug')),
-    loadRainbow().then(addFactory('rainbow')),
-  ]).then(() => entityFactories);
+  console.log('page_loaded');
 }
+main();
 
 
-async function main(canvas) {
+export function setupListeners(unicorn, level, camera) {
+  const canvas = document.getElementById('screen') as HTMLCanvasElement;
   const context = canvas.getContext('2d');
-  const charsFactory = (await loadChars()) as any;
-  const loadLevel = await createLevelLoader(charsFactory);
-  const level = await loadLevel(LEVEL);
-  const camera = new Camera();
-  const unicorn = charsFactory.unicorn();
-  const playerEnv = createPlayer(unicorn);
-
-  level.entities.add(playerEnv);
 
   ['keydown', 'keyup'].forEach(eventName => {
     window.addEventListener(eventName, (event: KeyboardEvent) => {
@@ -128,7 +32,6 @@ async function main(canvas) {
     });
   });
 
-
   const timer = new Timer(1 / 60);
   timer.update = function update(deltaTime) {
     level.update(deltaTime);
@@ -139,9 +42,4 @@ async function main(canvas) {
   setTimeout(() => {
     timer.start();
   }, 100);
-
-  console.log('page_loaded');
 }
-
-const canvas = document.getElementById('screen');
-main(canvas);

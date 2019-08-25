@@ -118,8 +118,8 @@ export function createUnicornFactory(sprite: SpriteSheet) {
 
         unicorn.addTrait(new Physics());
         unicorn.addTrait(new Solid());
-        unicorn.addTrait(new Run(runAnim));
         unicorn.addTrait(new Jump());
+        unicorn.addTrait(new Run(runAnim));
         unicorn.addTrait(new Picker());
         unicorn.addTrait(new Killable(1, deathAnim));
 

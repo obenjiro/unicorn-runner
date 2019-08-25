@@ -64,13 +64,14 @@ export class Entity {
   }
 
   getName() {
-    let name = 'idle';
     for (let i = 0; i < this.traits.length; i++) {
       const trait = this.traits[i];
       const name = trait.getName(this);
-      if (name) break;
+      if (name && name !== 'idle') {
+        return name;
+      }
     }
-    return name;
+    return 'idle';
   }
 
   revive() {

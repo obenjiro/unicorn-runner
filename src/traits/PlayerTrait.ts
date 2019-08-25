@@ -7,11 +7,14 @@ export class PlayerTrait extends Trait {
   private score: number;
   private scoreSelector: HTMLElement;
   private player: Entity;
-  constructor() {
+  done: () => {} = null;
+
+  constructor(done) {
     super('playerController');
     this.checkpoint = new Vec2(0, 0);
     this.player = null;
     this.score = 0;
+    this.done = done;
     this.scoreSelector = document.getElementById('unicorn-score');
   }
 
@@ -20,6 +23,10 @@ export class PlayerTrait extends Trait {
 
     this.player.picker.onPick = () => {
       this.score += 50;
+
+      if (this.score > 400) {
+        this.done();
+      }
 
       setTimeout(() => {
         this.scoreSelector.innerHTML = String(this.score);

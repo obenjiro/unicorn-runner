@@ -9,6 +9,7 @@ export class Level {
   entities: Set<any>;
   private entityCollider: EntityCollider;
   tileCollider: TileCollider;
+  alive: boolean = true;
   constructor() {
     this.gravity = 1500;
     this.totalTime = 0;
@@ -25,18 +26,24 @@ export class Level {
   }
 
   update(deltaTime) {
-    this.entities.forEach(entity => {
-      entity.update(deltaTime, this);
-    });
+    if (this.alive) {
+      this.entities.forEach(entity => {
+        entity.update(deltaTime, this);
+      });
 
-    this.entities.forEach(entity => {
-      this.entityCollider.check(entity);
-    });
+      this.entities.forEach(entity => {
+        this.entityCollider.check(entity);
+      });
 
-    this.entities.forEach(entity => {
-      entity.finalize();
-    });
+      this.entities.forEach(entity => {
+        entity.finalize();
+      });
 
-    this.totalTime += deltaTime;
+      this.totalTime += deltaTime;
+    }
+  }
+
+  stop() {
+    this.alive = false;
   }
 }
