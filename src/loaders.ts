@@ -22,13 +22,21 @@ export function loadSpriteSheet(name) {
   return new Promise(resolve => {
     resolve(name);
   })
-    .then(sheetSpec => Promise.all([sheetSpec, loadImage(sheetSpec.imageURL)]))
+    .then((sheetSpec: any) =>
+      Promise.all([sheetSpec, loadImage(sheetSpec.imageURL)])
+    )
     .then(([sheetSpec, image]) => {
       const sprites = new SpriteSheet(image, sheetSpec.tileW, sheetSpec.tileH);
 
       if (sheetSpec.frames) {
-        sheetSpec.frames.forEach(frameSpec => {
-          sprites.define(frameSpec.name, ...frameSpec.rect);
+        sheetSpec.frames.forEach((frameSpec: any) => {
+          sprites.define(
+            frameSpec.name,
+            frameSpec.rect.x,
+            frameSpec.y,
+            frameSpec.rect.width,
+            frameSpec.rect.height
+          );
         });
       }
 
