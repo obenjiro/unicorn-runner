@@ -1,4 +1,4 @@
-import {Trait} from "src/traits/Trait";
+import {Trait} from "./Trait";
 
 export class Picker extends Trait {
     private onPick: (us, them) => void;

@@ -1,4 +1,4 @@
-import {Trait} from "src/traits/Trait";
+import {Trait} from "./Trait";
 
 export class Run extends Trait {
     private speed: number;

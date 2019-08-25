@@ -1,6 +1,6 @@
-import {Entity} from "src/Entity";
-import {Level} from "src/Level";
-import {Trait} from "src/traits/Trait";
+import {Entity} from "../Entity";
+import {Level} from "../Level";
+import {Trait} from "./Trait";
 
 export class Physics extends Trait {
     constructor() {

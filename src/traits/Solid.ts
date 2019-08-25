@@ -1,5 +1,5 @@
-import {Sides} from "src/Entity";
-import {Trait} from "src/traits/Trait";
+import {Sides} from "../Entity";
+import {Trait} from "./Trait";
 
 export class Solid extends Trait {
     private obstructs: boolean;

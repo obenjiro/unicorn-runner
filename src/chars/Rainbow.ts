@@ -1,9 +1,9 @@
 import {loadSpriteSheet} from "../loaders";
 import {Entity} from "../Entity";
-import {Physics} from "src/traits/Physics";
-import {Solid} from "src/traits/Solid";
-import {Pickable} from "src/traits/Pickable";
-import {Trait} from "src/traits/Trait";
+import {Physics} from "../traits/Physics";
+import {Solid} from "../traits/Solid";
+import {Pickable} from "../traits/Pickable";
+import {Trait} from "../traits/Trait";
 
 const RAINBOW = {
     imageURL: 'img/rainbow_line.png',
