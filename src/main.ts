@@ -3,8 +3,8 @@ import { createFirstLevel } from './levels/fistLevel';
 import { createSecondLevel } from './levels/secondLevel';
 
 async function main() {
-  await createFirstLevel(() => {
-    createSecondLevel();
+  await createFirstLevel(async () => {
+    await createSecondLevel();
   });
   console.log('page_loaded');
 }

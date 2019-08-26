@@ -1,7 +1,7 @@
 export class SpriteSheet {
-  private image: any;
-  private width: number;
-  private height: number;
+  private readonly image: any;
+  private readonly width: number;
+  private readonly height: number;
   private tiles: Map<any, any>;
   animations: Map<any, any>;
   constructor(image, width, height) {

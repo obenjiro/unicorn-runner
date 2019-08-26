@@ -1,7 +1,7 @@
 import { Trait } from './Trait';
 
 export class Picker extends Trait {
-  private onPick: (us, them) => void;
+  private readonly onPick: (us, them) => void;
 
   constructor() {
     super('picker');

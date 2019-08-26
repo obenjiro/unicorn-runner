@@ -2,7 +2,7 @@ import { Sides } from './Entity';
 
 export class TileResolver {
   private matrix: any;
-  private tileSize: number;
+  private readonly tileSize: number;
   constructor(matrix, tileSize = 60) {
     this.matrix = matrix;
     this.tileSize = tileSize;
@@ -38,10 +38,6 @@ export class TileResolver {
         y2,
       };
     }
-  }
-
-  searchByPosition(posX, posY) {
-    return this.getByIndex(this.toIndex(posX), this.toIndex(posY));
   }
 
   searchByRange(x1, x2, y1, y2) {

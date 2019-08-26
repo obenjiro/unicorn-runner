@@ -1,5 +1,5 @@
 import { Vec2 } from './math';
-import { ClipBox } from './CLipBox';
+import { ClipBox } from 'src/ClipBox';
 
 export const Sides = {
   TOP: Symbol('top'),
@@ -15,7 +15,7 @@ export class Entity {
   offset: Vec2;
   bounds: ClipBox;
   lifetime: number;
-  private traits: any[];
+  private readonly traits: any[];
   picker: any;
 
   constructor() {
@@ -46,7 +46,7 @@ export class Entity {
     });
   }
 
-  draw(conext) {}
+  draw(context) {}
 
   finalize() {
     this.traits.forEach(trait => {

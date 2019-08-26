@@ -47,7 +47,6 @@ export function drawStaticBackground() {
   let GlassBackImage;
   let GlassFrontImage;
   let loaded = 0;
-  const context = buffer.getContext('2d');
 
   function drawGradient(context) {
     let gradient = context.createLinearGradient(0, 0, 0, buffer.width);

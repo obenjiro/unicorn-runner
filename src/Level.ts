@@ -3,13 +3,15 @@ import { EntityCollider } from './EntityCollider';
 import { TileCollider } from './TileCreation';
 
 export class Level {
-  gravity: number;
+  private entityCollider: EntityCollider;
   private totalTime: number;
+
+  gravity: number;
   comp: Compositor;
   entities: Set<any>;
-  private entityCollider: EntityCollider;
   tileCollider: TileCollider;
   alive: boolean = true;
+
   constructor() {
     this.gravity = 1500;
     this.totalTime = 0;

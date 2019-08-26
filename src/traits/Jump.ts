@@ -3,12 +3,12 @@ import { Trait } from './Trait';
 
 export class Jump extends Trait {
   private ready: number;
-  private duration: number;
   private engageTime: number;
   private requestTime: number;
-  private gracePeriod: number;
-  private speedBoost: number;
-  private velocity: number;
+  private readonly duration: number;
+  private readonly gracePeriod: number;
+  private readonly speedBoost: number;
+  private readonly velocity: number;
 
   constructor() {
     super('jump');

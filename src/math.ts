@@ -1,5 +1,5 @@
 export class Matrix {
-  private grid: any;
+  private readonly grid: any;
   constructor() {
     this.grid = [];
   }

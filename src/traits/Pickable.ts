@@ -3,7 +3,7 @@ import { Trait } from './Trait';
 export class Pickable extends Trait {
   private picked: boolean;
   private pickTime: number;
-  private removeAfter: number;
+  private readonly removeAfter: number;
 
   constructor() {
     super('pickable');
