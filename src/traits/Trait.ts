@@ -1,34 +1,31 @@
 import { Entity } from 'src/Entity';
 
 export class Trait {
-    private NAME: any;
-    private tasks: any[];
+  private NAME: any;
+  private tasks: any[];
 
-    constructor(name) {
-        this.NAME = name;
+  constructor(name) {
+    this.NAME = name;
 
-        this.tasks = [];
-    }
+    this.tasks = [];
+  }
 
-    finalize() {
-        this.tasks.forEach(task => task());
-        this.tasks.length = 0;
-    }
+  finalize() {
+    this.tasks.forEach(task => task());
+    this.tasks.length = 0;
+  }
 
-    queue(task) {
-        this.tasks.push(task);
-    }
+  queue(task) {
+    this.tasks.push(task);
+  }
 
-    collides(us, them) {
-    }
+  collides(us, them) {}
 
-    obstruct(entity, side, match) {
-    }
+  obstruct(entity, side, match) {}
 
-    update(entity, deltaTime, level) {
-    }
+  update(entity, deltaTime, level) {}
 
-    getName(entiry: Entity) {
-      return 'idle';
-    }
+  getName(entiry: Entity) {
+    return 'idle';
+  }
 }

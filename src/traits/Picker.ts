@@ -1,19 +1,18 @@
-import {Trait} from "./Trait";
+import { Trait } from './Trait';
 
 export class Picker extends Trait {
-    private onPick: (us, them) => void;
+  private onPick: (us, them) => void;
 
-    constructor() {
-        super('picker');
-        this.onPick = function (us, them) {
-        };
+  constructor() {
+    super('picker');
+    this.onPick = function(us, them) {};
+  }
+
+  collides(us, them) {
+    if (!them.pickable || them.pickable.picked) {
+      return;
     }
 
-    collides(us, them) {
-        if (!them.pickable || them.pickable.picked) {
-            return;
-        }
-
-        this.onPick(us, them);
-    }
+    this.onPick(us, them);
+  }
 }

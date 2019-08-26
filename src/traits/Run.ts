@@ -21,7 +21,7 @@ export class Run extends Trait {
 
   getName(entity: Entity) {
     if (this.distance > 0) {
-      return this.runAnim(this.distance)
+      return this.runAnim(this.distance);
     }
   }
 }

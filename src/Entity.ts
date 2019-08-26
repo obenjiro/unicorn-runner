@@ -46,8 +46,7 @@ export class Entity {
     });
   }
 
-  draw(conext) {
-  }
+  draw(conext) {}
 
   finalize() {
     this.traits.forEach(trait => {

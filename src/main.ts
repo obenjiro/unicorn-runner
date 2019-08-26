@@ -6,11 +6,9 @@ async function main() {
   await createFirstLevel(() => {
     createSecondLevel();
   });
-
   console.log('page_loaded');
 }
 main();
-
 
 export function setupListeners(unicorn, level, camera) {
   const canvas = document.getElementById('screen') as HTMLCanvasElement;

@@ -87,16 +87,16 @@ const LEVEL = {
 };
 
 export async function createFirstLevel(done) {
-  const charsFactory = (await Promise.all([
+  const charsFactory = await Promise.all([
     loadUnicorn(),
     loadEnemyBug(),
     loadRainbow(),
-  ]).then((entityFactories) => {
+  ]).then(entityFactories => {
     entityFactories['unicorn'] = entityFactories[0];
     entityFactories['enemyBug'] = entityFactories[1];
     entityFactories['rainbow'] = entityFactories[2];
     return entityFactories;
-  }));
+  });
 
   const loadLevel = await createLevelLoader(charsFactory);
   const level = await loadLevel(LEVEL);

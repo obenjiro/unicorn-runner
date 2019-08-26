@@ -1,6 +1,6 @@
 import { Vec2 } from '../math';
-import { Entity} from '../Entity';
-import {Trait} from "./Trait";
+import { Entity } from '../Entity';
+import { Trait } from './Trait';
 
 export class PlayerTrait extends Trait {
   checkpoint: Vec2;
