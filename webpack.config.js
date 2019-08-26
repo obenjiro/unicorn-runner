@@ -13,7 +13,7 @@ module.exports = {
 	},
 
 	plugins: [
-		new webpack.ProgressPlugin(), 
+		new webpack.ProgressPlugin(),
 		new HtmlWebpackPlugin({
 			template: "index.html"
 		})
@@ -22,7 +22,7 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /.(ts|tsx)?$/,
+				test: /.(ts|tsx)$/,
 				loader: 'ts-loader',
 				include: [path.resolve(__dirname, 'src')],
 				exclude: [/node_modules/]

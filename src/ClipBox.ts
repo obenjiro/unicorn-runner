@@ -1,4 +1,4 @@
-import { Vec2 } from 'src/math';
+import { Vec2 } from './math';
 
 export class ClipBox {
   private pos: Vec2;

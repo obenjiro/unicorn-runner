@@ -10,6 +10,6 @@ export class Anim extends Trait {
   }
 
   getName(entity: Entity): string {
-    return this.anim[entity.lifetime];
+    return this.anim(entity.lifetime);
   }
 }

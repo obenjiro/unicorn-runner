@@ -1,6 +1,7 @@
 import { loadImage } from './loaders';
 import { SpriteSheet } from './SpriteSheet';
 import { TileResolver } from './TileCreation';
+import { Camera } from './Camera';
 
 export function createBackgroundLayer(level, tiles, image) {
   const resolver = new TileResolver(tiles);
@@ -27,7 +28,7 @@ export function createBackgroundLayer(level, tiles, image) {
     }
   }
 
-  return function drawBackgroundLayer(context, camera) {
+  return function drawBackgroundLayer(context, camera: Camera) {
     const drawWidth = resolver.toIndex(camera.size.x);
     const drawFrom = resolver.toIndex(camera.pos.x);
     const drawTo = drawFrom + drawWidth;

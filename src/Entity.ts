@@ -1,6 +1,6 @@
 import { Vec2 } from './math';
 import { ClipBox } from './ClipBox';
-import { SpriteSheet } from 'src/SpriteSheet';
+import { SpriteSheet } from './SpriteSheet';
 
 export class Entity {
   pos: Vec2;

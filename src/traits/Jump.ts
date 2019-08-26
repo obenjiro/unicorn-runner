@@ -1,6 +1,6 @@
 import { Entity} from '../Entity';
 import { Trait } from './Trait';
-import { Sides } from 'src/Sides';
+import { Sides } from '../Sides';
 
 export class Jump extends Trait {
   private ready: number;

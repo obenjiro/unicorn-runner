@@ -1,4 +1,4 @@
-import { Sides } from 'src/Sides';
+import { Sides } from './Sides';
 
 export class TileResolver {
   private matrix: any;

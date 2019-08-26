@@ -1,4 +1,4 @@
-import { Entity } from 'src/Entity';
+import { Entity } from '../Entity';
 
 export class Trait {
   private NAME: any;

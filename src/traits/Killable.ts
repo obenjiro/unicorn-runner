@@ -1,5 +1,5 @@
 import { Trait } from './Trait';
-import { Entity } from 'src/Entity';
+import { Entity } from '../Entity';
 
 export class Killable extends Trait {
   dead: boolean;

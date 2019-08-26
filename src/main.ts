@@ -1,43 +1,14 @@
 import { Timer } from './Timer';
-import { createFirstLevel } from './levels/fistLevel';
-import { createSecondLevel } from './levels/secondLevel';
+import { createLevel } from './levelFactory';
 
+const FIRST_LEVEL = require('./data/first_level.json');
+const SECOND_LEVEL = require('./data/second_level.json');
+
+console.log(FIRST_LEVEL)
 async function main() {
-  await createFirstLevel(async () => {
-    await createSecondLevel();
+  await createLevel(FIRST_LEVEL, async () => {
+    await createLevel(SECOND_LEVEL, () => {});
   });
   console.log('page_loaded');
 }
 main();
-
-export function setupListeners(unicorn, level, camera) {
-  const canvas = document.getElementById('screen') as HTMLCanvasElement;
-  const context = canvas.getContext('2d');
-
-  ['keydown', 'keyup'].forEach(eventName => {
-    window.addEventListener(eventName, (event: KeyboardEvent) => {
-      if (event.code === 'Space') {
-        const keyState = event.type === 'keydown' ? 1 : 0;
-
-        if (keyState > 0) {
-          unicorn.jump.start();
-        } else {
-          unicorn.jump.cancel();
-        }
-      } else {
-        unicorn.jump.cancel();
-      }
-    });
-  });
-
-  const timer = new Timer(1 / 60);
-  timer.update = function update(deltaTime) {
-    level.update(deltaTime);
-    camera.pos.x = Math.max(0, unicorn.pos.x - 100);
-    level.comp.draw(context, camera);
-  };
-
-  setTimeout(() => {
-    timer.start();
-  }, 100);
-}
