@@ -1,12 +1,6 @@
 import { Vec2 } from './math';
-import { ClipBox } from 'src/ClipBox';
-
-export const Sides = {
-  TOP: Symbol('top'),
-  BOTTOM: Symbol('bottom'),
-  LEFT: Symbol('left'),
-  RIGHT: Symbol('right'),
-};
+import { ClipBox } from './ClipBox';
+import { SpriteSheet } from 'src/SpriteSheet';
 
 export class Entity {
   pos: Vec2;
@@ -17,8 +11,10 @@ export class Entity {
   lifetime: number;
   private readonly traits: any[];
   picker: any;
+  private sprite: SpriteSheet;
 
-  constructor() {
+  constructor(sprite?: SpriteSheet) {
+    this.sprite = sprite;
     this.pos = new Vec2(0, 0);
     this.vel = new Vec2(0, 0);
     this.size = new Vec2(0, 0);
@@ -46,7 +42,9 @@ export class Entity {
     });
   }
 
-  draw(context) {}
+  draw(context) {
+    this.sprite.draw(this.getName(), context, 0, 0);
+  }
 
   finalize() {
     this.traits.forEach(trait => {

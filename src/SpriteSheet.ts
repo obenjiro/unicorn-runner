@@ -4,6 +4,7 @@ export class SpriteSheet {
   private readonly height: number;
   private tiles: Map<any, any>;
   animations: Map<any, any>;
+
   constructor(image, width, height) {
     this.image = image;
     this.width = width;

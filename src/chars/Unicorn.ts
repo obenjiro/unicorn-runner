@@ -100,7 +100,7 @@ export function createUnicornFactory(sprite: SpriteSheet) {
   const deathAnim = sprite.animations.get('death');
 
   return function createUnicorn() {
-    const unicorn = new Entity();
+    const unicorn = new Entity(sprite);
     unicorn.size.set(120, 119);
     unicorn.offset.x = 20;
 
@@ -110,10 +110,6 @@ export function createUnicornFactory(sprite: SpriteSheet) {
     unicorn.addTrait(new Run(runAnim));
     unicorn.addTrait(new Picker());
     unicorn.addTrait(new Killable(1, deathAnim));
-
-    unicorn.draw = function(context) {
-      sprite.draw(unicorn.getName(), context, 0, 0);
-    };
 
     return unicorn;
   };

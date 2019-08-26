@@ -5,6 +5,7 @@ import { Solid } from '../traits/Solid';
 import { Pickable } from '../traits/Pickable';
 import { SpriteSheet } from '../SpriteSheet';
 import { BehaviorRainbow } from '../traits/BehaviorRainbow';
+import { Anim } from 'src/traits/Anim';
 
 const RAINBOW = {
   imageURL: 'img/rainbow_line.png',
@@ -58,17 +59,14 @@ export function createRainbowFactory(sprite: SpriteSheet) {
   const sparkAnim = sprite.animations.get('spark');
 
   return function createRainbow() {
-    const rainbow = new Entity();
+    const rainbow = new Entity(sprite);
     rainbow.size.set(83, 93);
 
     rainbow.addTrait(new Physics());
     rainbow.addTrait(new Solid());
     rainbow.addTrait(new Pickable());
     rainbow.addTrait(new BehaviorRainbow());
-
-    rainbow.draw = function(context) {
-      sprite.draw(sparkAnim(this.lifetime), context, 0, 0);
-    };
+    rainbow.addTrait(new Anim(sparkAnim));
 
     return rainbow;
   };

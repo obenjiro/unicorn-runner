@@ -5,6 +5,7 @@ import { Solid } from '../traits/Solid';
 import { Killable } from '../traits/Killable';
 import { BehaviorEnemyBug } from '../traits/BehaviorEnemyBug';
 import { SpriteSheet } from '../SpriteSheet';
+import { Anim } from 'src/traits/Anim';
 
 const ENEMY_BUG = {
   imageURL: 'img/bug_line.png',
@@ -47,7 +48,7 @@ export function createEnemyBugFactory(sprite: SpriteSheet) {
   const standAnim = sprite.animations.get('anim');
 
   return function createEnemyBug() {
-    const enemyBug = new Entity();
+    const enemyBug = new Entity(sprite);
     enemyBug.size.set(58, 45);
     enemyBug.offset.y = 20;
 
@@ -55,10 +56,7 @@ export function createEnemyBugFactory(sprite: SpriteSheet) {
     enemyBug.addTrait(new Solid());
     enemyBug.addTrait(new BehaviorEnemyBug());
     enemyBug.addTrait(new Killable(1));
-
-    enemyBug.draw = function(context) {
-      sprite.draw(standAnim(this.lifetime), context, 0, 0);
-    };
+    enemyBug.addTrait(new Anim(standAnim));
 
     return enemyBug;
   };

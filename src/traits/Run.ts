@@ -2,7 +2,7 @@ import { Trait } from './Trait';
 import { Entity } from '../Entity';
 
 export class Run extends Trait {
-  private speed: number;
+  private readonly speed: number;
   distance: number;
   runAnim: any;
 
